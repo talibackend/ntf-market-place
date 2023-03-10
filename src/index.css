@@ -13,6 +13,12 @@ body{
 ::placeholder{
   color : #E903C4
 }
+.centralizer{
+  padding : 0%;
+  margin : 0%;
+  display: inline-flex;
+  justify-content: center;
+}
 /* Top Banner Styling */
 .top-banner-wrapper{
   padding-top: 60px;
@@ -78,4 +84,37 @@ body{
   border: none;
   font-size: 17px;
   outline: none;
+}
+/* End of search styling */
+
+/* Start of card styling */
+.cards-wrapper{
+  padding : 10px 0%;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: left;
+  /* background-color: red; */
+}
+.card-container{
+  margin: 10px;
+  padding: 7px;
+  background-color: transparent;
+  border: solid 1px #E903C4;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.card-image-container > img{
+  width: 15rem;
+  border-radius: 10px;
+}
+.card-info{
+  margin: 20px 0%;
+  display: inline-flex;
+  justify-content: space-evenly;
+  /* background-color: red; */
+  width: 100%;
+}
+.card-price{
+  color : green;
 }

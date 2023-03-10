@@ -5,6 +5,5 @@ export const HomeScreen = ()=>{
     return <div className="body-wrapper">
         <TopBannerComponent />
         <MainComponent />
-        <p>Hello world...</p>
     </div>;
 }
