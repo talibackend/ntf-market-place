@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 body{
   background-color: #0F1139;
   color : white;
+  font-family: Roboto;
 }
 .body-wrapper{
   padding : 10px 10%;
