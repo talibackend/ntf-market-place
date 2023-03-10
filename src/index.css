@@ -8,6 +8,9 @@ body{
 .icon-style{
   width : 10px;
 }
+::placeholder{
+  color : #E903C4
+}
 /* Top Banner Styling */
 .top-banner-wrapper{
   padding-top: 60px;
@@ -44,7 +47,7 @@ body{
 .search-border-container{
   background: linear-gradient(#E903C4, #2d3076);
   padding: 1px;
-  border-radius: 20px;
+  border-radius: 15px;
   width: 30%;
 }
 .search-container{
@@ -53,10 +56,14 @@ body{
   background-color: #141526;
   padding : 5px;
   width: 97%;
-  border-radius: 20px;
+  border-radius: 15px;
 }
 .search-container > div{
-  margin: 10px;
+  margin: 5px;
+  color : #E903C4;
+}
+.search-input-wrapper{
+  width: 980%;
 }
 .search-container > div > input{
   padding: 2px 2px;
@@ -64,5 +71,6 @@ body{
   color: #E903C4;
   background-color: transparent;
   border: none;
-  font-size: 15px;
+  font-size: 17px;
+  outline: none;
 }

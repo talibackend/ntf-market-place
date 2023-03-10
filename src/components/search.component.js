@@ -7,7 +7,7 @@ export const SearchComponent = ()=>{
                 <div>
                     <SearchOutlined />
                 </div>
-                <div>
+                <div className="search-input-wrapper">
                     <input placeholder="Search" />
                 </div>
             </div>
