@@ -30,7 +30,10 @@ body{
 .top-banner-message{
   font-size : 2.5rem;
   font-weight: bold;
-  color : white;
+  background: radial-gradient(95.72% 1876.3% at 0% 16.53%, rgba(0, 224, 255, 0.97) 0%, #FFFFFF 35.3%, #FF56E4 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .top-banner-image img{
   height : 250px;
