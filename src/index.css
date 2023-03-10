@@ -1,9 +1,14 @@
 body{
   background-color: #0F1139;
+  color : white;
 }
 .body-wrapper{
   padding : 10px 10%;
 }
+.icon-style{
+  width : 10px;
+}
+/* Top Banner Styling */
 .top-banner-wrapper{
   padding-top: 60px;
   display: inline-flex;
@@ -27,4 +32,37 @@ body{
 .top-banner-image img{
   height : 250px;
   margin-top: -45px;
+}
+/* End of Top Banner Styling */
+.search-wrapper{
+  padding : 10px;
+  display: inline-flex;
+  width: 100%;
+  justify-content: center;
+  margin-top : 10px
+}
+.search-border-container{
+  background: linear-gradient(#E903C4, #2d3076);
+  padding: 1px;
+  border-radius: 20px;
+  width: 30%;
+}
+.search-container{
+  /* background-color: green; */
+  display: inline-flex;
+  background-color: #141526;
+  padding : 5px;
+  width: 97%;
+  border-radius: 20px;
+}
+.search-container > div{
+  margin: 10px;
+}
+.search-container > div > input{
+  padding: 2px 2px;
+  width: 100%;
+  color: #E903C4;
+  background-color: transparent;
+  border: none;
+  font-size: 15px;
 }
