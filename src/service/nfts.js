@@ -43,4 +43,4 @@ for(let i = 0; i < gottenData.length; i++){
 
 cleanData = JSON.stringify(cleanData);
 
-fs.writeFileSync('./src/service/nfts.data.js', `export default data = ${cleanData}`);
+fs.writeFileSync('./src/service/nfts.data.js', `export default        ${cleanData}`);
