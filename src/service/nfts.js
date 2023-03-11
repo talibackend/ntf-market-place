@@ -18,6 +18,14 @@ let gottenData = [
 
 let cleanData = [];
 
+const searchIfAlreadyExists = (id)=>{
+    for(let i = 0; i < cleanData.length; i++){
+        if(cleanData[i].id == id){
+            return true;
+        }
+    }
+}
+
 for(let i = 0; i < gottenData.length; i++){
     gottenData[i] = JSON.parse(gottenData[i]);
     let list = gottenData[i].data.searchItems.edges;
@@ -29,18 +37,21 @@ for(let i = 0; i < gottenData.length; i++){
             delete node.orderData.bestAskV2.priceType.unit;
             let priceKey = Object.keys(node.orderData.bestAskV2.priceType)[0];
             let price = node.orderData.bestAskV2.priceType[priceKey];
-            cleanData.push({
-                id : node.id,
-                name : node.name,
-                image : node.imageUrl,
-                link : `https://opensea.io/assets/${chain}/${link_1}/${node.tokenId}`,
-                price : `${priceKey.toUpperCase()} ${price}`,
-                verifyLink : node.orderData.bestAskV2.item.assetContract.blockExplorerLink
-            })
+            if(!searchIfAlreadyExists(node.id)){
+                cleanData.push({
+                    id : node.id,
+                    name : node.name,
+                    image : node.imageUrl,
+                    link : `https://opensea.io/assets/${chain}/${link_1}/${node.tokenId}`,
+                    price : `${priceKey.toUpperCase()} ${price}`,
+                    verifyLink : node.orderData.bestAskV2.item.assetContract.blockExplorerLink
+                })
+            }
         }
     }
 }
 
+console.log(cleanData.length);
 cleanData = JSON.stringify(cleanData);
 
-fs.writeFileSync('./src/service/nfts.data.js', `export default        ${cleanData}`);
+fs.writeFileSync('nfts.data.js', `export default ${cleanData}`);
