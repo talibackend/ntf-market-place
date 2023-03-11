@@ -1,9 +1,9 @@
 import { SearchComponent } from "./search.component";
 import { CardComponent } from "./card.component";
 
-export const MainComponent = ({ nfts, allLoaded, loadingOlderNfts, viewNft }) => {
+export const MainComponent = ({ nfts, allLoaded, loadingOlderNfts, viewNft, searchHandler }) => {
     return <>
-        <SearchComponent />
+        <SearchComponent searchHandler={searchHandler} />
         <div className="centralizer">
             <div className="cards-wrapper">
                 {
