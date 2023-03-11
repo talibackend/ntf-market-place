@@ -15,28 +15,44 @@ export const HomeScreen = ()=>{
     const [searchString, setSearchString] = useState(null);
     const [searchingNfts, setSearchingNfts] = useState(false); 
 
+    const searchIfRendered = (id)=>{
+        for(let i = 0; i < nftList.length; i++){
+            if(nftList[i].id === id){
+                return true;
+            }
+        }
+    }
+
     const searchNft = ()=>{
-        if(searchingNfts !== true){
-            loadingOlderNfts(false);
-            if(searchString !== null && searchString !== ""){
+        if(searchString !== null && searchString.length > 0){
+            setLoadingOlderNfts(false);
+            setAllLoaded(false);
+            setSearchingNfts(true);
+            const searcher = setTimeout(()=>{
                 let formerNfts = [];
                 for(let i = 0; i < data.length; i++){
-                    if(data[i].name.toLowerCase().includes(searchString.toLowerCase())){
-                        formerNfts.push(data[i]);
+                    if(!searchIfRendered(data[i].id)){
+                        if(data[i].name.toLowerCase().includes(searchString.toLowerCase())){
+                            // console.log(searchString.toLowerCase());
+                            formerNfts.push(data[i]);
+                        }
                     }
                 }
                 setNftList([...formerNfts]);
-            }else{
-                setOffset(0);
-            }
+                setSearchingNfts(false);
+            }, 1000);
+            return ()=> clearTimeout(searcher);
         }
+        setOffset(0);
     }
 
     const loadNft = ()=>{
         let formerList = [];
         for(let i = offset; i < offset + limit; i++){
             if(i < data.length){
-                formerList.push(data[i]);
+                if(!searchIfRendered(data[i].id)){
+                    formerList.push(data[i]);
+                }
             }else{
                 setAllLoaded(true);
             }
@@ -61,8 +77,9 @@ export const HomeScreen = ()=>{
     const paginationHandler = ()=>{
         if(loadingOlderNfts === false && allLoaded == false){
             if ((window.innerHeight + window.scrollY) > document.body.offsetHeight) {
-                setLoadingOlderNfts(true);
                 setSearchingNfts(false);
+                setSearchString(null);
+                setLoadingOlderNfts(true);
                 const loader = setTimeout(()=>{
                     let newOffset = offset + limit;
                     setOffset(newOffset);
@@ -84,7 +101,7 @@ export const HomeScreen = ()=>{
 
     return <div className="body-wrapper" onScroll={(e)=>{return paginationHandler(e)}}>
         <TopBannerComponent />
-        <MainComponent searchingNfts={searchingNfts} searchHandler={setSearchString} nfts={nftList} loadingOlderNfts={loadingOlderNfts} allLoaded={allLoaded} viewNft={viewNft} />
+        <MainComponent searchingNfts={searchingNfts} searchString={searchString} searchHandler={setSearchString} nfts={nftList} loadingOlderNfts={loadingOlderNfts} allLoaded={allLoaded} viewNft={viewNft} />
         { openModal ? <ModalComponent openModal={setOpenModal} nft={viewingNft} /> : null }
     </div>;
 }

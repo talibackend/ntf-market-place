@@ -1,6 +1,6 @@
 import { SearchOutlined } from "@mui/icons-material"
 
-export const SearchComponent = ({searchHandler})=>{
+export const SearchComponent = ({searchHandler, searchString})=>{
     return <div className="search-wrapper">
         <div className="search-border-container">
             <div className="search-container">
@@ -8,7 +8,7 @@ export const SearchComponent = ({searchHandler})=>{
                     <SearchOutlined />
                 </div>
                 <div className="search-input-wrapper">
-                    <input placeholder="Search" onChange={(e)=>{ return searchHandler(e.target.value); }} />
+                    <input placeholder="Search" value={searchString ? searchString : ""} onChange={(e)=>{ searchHandler(e.target.value); }} />
                 </div>
             </div>
         </div>
