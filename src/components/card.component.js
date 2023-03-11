@@ -1,21 +1,20 @@
 
 export const CardComponent = (props)=>{
     const {
+        price,
         name, 
-        image,
-        link,
-        verifyLink
+        image
     } = props;
     return <div className="card-container">
         <div className="card-image-container">
-                <img alt="NFT" src="https://openseauserdata.com/files/089aa42ae99a59cbe8cdb9b9add578ed.svg" />
+                <img alt="NFT" src={image} />
         </div>
         <div className="card-info">
             <div className="card-name">
-                Test NTF
+                {name}
             </div>
             <div className="card-price">
-                ETH 0.15
+                {price}
             </div>
         </div>
     </div>;

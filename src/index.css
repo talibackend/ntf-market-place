@@ -19,6 +19,7 @@ body{
   margin : 0%;
   display: inline-flex;
   justify-content: center;
+  flex-direction: column;
 }
 /* Top Banner Styling */
 .top-banner-wrapper{
@@ -192,4 +193,12 @@ body{
   background-color: transparent;
   color: #E903C4;
   border: solid 2px #E903C4;
+}
+/* End of modal design */
+
+.loading-older-status{
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 40px;
 }

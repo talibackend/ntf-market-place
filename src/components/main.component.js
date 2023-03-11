@@ -1,19 +1,19 @@
 import { SearchComponent } from "./search.component";
 import { CardComponent } from "./card.component";
 
-export const MainComponent = ()=>{
+export const MainComponent = ({nfts, paginationHandler})=>{
     return <>
         <SearchComponent />
         <div className="centralizer">
-            <div className="cards-wrapper">
-                <CardComponent />
-                <CardComponent />
-                <CardComponent />
-                <CardComponent />
-                <CardComponent />
-                <CardComponent />
-                <CardComponent />
+            <div className="cards-wrapper" onScroll={(e)=>{ return paginationHandler(e); }}>
+                {
+                    nfts.map((nft)=>{ return <CardComponent key={nft.id} name={nft.name} image={nft.image} price={nft.price} /> })
+                }
+            </div>
+            <div className="loading-older-status">
+                Loading Older NFTs...
             </div>
         </div>
+
     </>;
 }
