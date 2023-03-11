@@ -1,11 +1,13 @@
 
 export const CardComponent = (props)=>{
     const {
+        id,
         price,
         name, 
-        image
+        image,
+        viewNft
     } = props;
-    return <div className="card-container">
+    return <div className="card-container" onClick={()=>{ return viewNft(id); }}>
         <div className="card-image-container">
                 <img alt="NFT" src={image} />
         </div>

@@ -8,8 +8,8 @@ export const ModalContentComponent = ({nft}) => {
             <p>{nft.price}</p>
             <p><a href="#" target="__blank">Owner</a></p>
             <p><a href="#">Collection</a></p>
-            <p><a href="#" target="__blank">Verify</a></p>
-            <p><button>Buy Now</button></p>
+            <p><a href={nft.verifyLink} target="__blank">Verify</a></p>
+            <p><button onClick={()=>{ window.open(nft.link, "__blank") }}>Buy Now</button></p>
         </div>
     </div>;
 }
