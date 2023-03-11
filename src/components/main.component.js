@@ -5,6 +5,11 @@ export const MainComponent = ({ nfts, allLoaded, loadingOlderNfts, viewNft, sear
     return <>
         <SearchComponent searchHandler={searchHandler} />
         <div className="centralizer">
+            {
+                loadingOlderNfts ? <div className="loading-older-status">
+                    Searching Nfts
+                </div> : null
+            }
             <div className="cards-wrapper">
                 {
                     nfts.map((nft) => { return <CardComponent key={nft.id} id={nft.id} name={nft.name} image={nft.image} price={nft.price} viewNft={viewNft} /> })
