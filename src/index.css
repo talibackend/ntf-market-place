@@ -105,17 +105,22 @@ body{
   border: solid 1px #E903C4;
   border-radius: 10px;
   cursor: pointer;
+  height: 20rem;
 }
 .card-image-container > img{
   width: 15rem;
   border-radius: 10px;
+  height: 15rem;
+  /* object-fit: cover; */
 }
 .card-info{
   margin: 20px 0%;
   display: inline-flex;
   justify-content: space-evenly;
   /* background-color: red; */
-  width: 100%;
+  width: 15rem;
+  flex-wrap: wrap;
+  line-height: 25px;
 }
 .card-price{
   color : green;
